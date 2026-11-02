@@ -78,3 +78,17 @@ mundos_ia/
 ├── descripciones/             # Archivos mundo_<id>.txt con descripciones generadas
 └── imagenes/                  # Archivos mundo_<id>.jpg con las imágenes creadas
 ```
+
+## Experimento Gitignore
+
+Ejecuté ```bash npm publish --dry-run``` usando el nombre del archivo .gitignore y al ejecutarse salió lo siguiente:
+
+![Imagen de la ejecución con gitignore activo](capturas/captura_npm_gitignore.png)
+
+Como se puede ver la imagen el comando responde con el mensaje de que no se encontró un archivo llamado .npmignore usando gitignore para excluir archivos, esto es muy importante porque si usamos el gitignore.off se ejecuta lo siguiente:
+
+![Imagen de la ejecución con gitignore activo](capturas/captura_npm_gitignore.off.pngpng)
+
+Aquí no sale el mensaje y lo peligroso es que no excluye archivos para publicar el paquete en npm, por lo que se nos van a subir las API KEY y como estoy usando CloudFlare a parte de subirse la API KEY también lo hará mi id de mi cuenta con la que estoy registrado en este servicio, esto puede hacer que un atacante pueda agotar mis cuotas de uso de IA en cualquier cosa que se le ocurra, incluso generando facturas a mi costa por el uso de IA, y como tengo el ID de mi cuenta puede robar información, alterar registros, etc.. Por esto, es muy peligroso subir esta información a repositorios públicos donde cualquier persona los puede ver y usar.
+
+
