@@ -1,0 +1,21 @@
+{
+  "name": "mundos_ia",
+  "version": "1.0.0",
+  "description": "CLI en Node.js para generar descripciones e imágenes de mundos fantásticos usando APIs de IA.",
+  "keywords": [
+    "IA",
+    "Imagenes",
+    "crear"
+  ],
+  "license": "ISC",
+  "author": "Luis Ortega",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "object-hash": "^3.0.0"
+  }
+}

@@ -1,0 +1,10 @@
+# Paso 1: Ignorar la carpeta de dependencias instaladas por npm
+node_modules/
+
+# Paso 2: Ignorar el archivo de variables de entorno con las API keys reales
+.env
+
+# Paso 3: Ignorar los archivos locales generados por la aplicación
+data/
+descripciones/
+imagenes/
