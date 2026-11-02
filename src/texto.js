@@ -24,7 +24,7 @@ async function generarDescripcion(id) {
     throw new Error('Falta la variable GROQ_API_KEY en el archivo .env');
   }
 
-  // Paso 7: Usar un modelo activo
+  // Paso 7: Obtener el modelo configurado o usar un modelo activo por defecto
   const modelo = process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
 
   // Paso 8: Construir el prompt detallado con la situación, el mundo y los colores
@@ -77,12 +77,17 @@ async function generarDescripcion(id) {
     // Paso 15: Retornar la descripción obtenida
     return descripcion;
   } catch (error) {
-    console.error(`Ocurrió un error al generar la descripción: ${error.message}`);
-    throw error;
+    // Paso 16: Personalizar el mensaje si ocurre un error de red o fetch
+    let mensajeError = error.message;
+    if (error.message.toLowerCase().includes('fetch')) {
+      mensajeError = 'failed to fetch revisa la conexión o la URL del servicio que estás intentando acceder';
+    }
+    console.error(`Ocurrió un error al generar la descripción: ${mensajeError}`);
+    throw new Error(mensajeError);
   }
 }
 
-// Paso 16: Exportar la función generarDescripcion para usarla con require
+// Paso 17: Exportar la función generarDescripcion para usarla con require
 module.exports = {
   generarDescripcion
 };
