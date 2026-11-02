@@ -24,7 +24,7 @@ async function generarDescripcion(id) {
     throw new Error('Falta la variable GROQ_API_KEY en el archivo .env');
   }
 
-  // Paso 7: Obtener el modelo configurado o usar un modelo activo por defecto
+  // Paso 7: Usar un modelo activo
   const modelo = process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
 
   // Paso 8: Construir el prompt detallado con la situación, el mundo y los colores
